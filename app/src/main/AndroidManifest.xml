@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".CheckListActivity" />
         <activity android:name=".CheckList2Activity" />
-        <activity android:name=".itemVehicleActivity"></activity>
+        <activity android:name=".itemVehicleActivity" />
+        <activity android:name=".AddCheckListActivity"></activity>
     </application>
 
 </manifest>

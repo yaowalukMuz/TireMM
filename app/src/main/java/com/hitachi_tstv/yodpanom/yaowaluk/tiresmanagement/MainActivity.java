@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }// Main Method
 
     public void clickSignIn(View view) {
-        Intent intent = new Intent(MainActivity.this, CheckList2Activity.class);
+        Intent intent = new Intent(MainActivity.this, CheckListActivity.class);
         startActivity(intent);
         finish();
     }

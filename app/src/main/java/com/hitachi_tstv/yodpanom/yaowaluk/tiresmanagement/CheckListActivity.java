@@ -4,9 +4,12 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 
 import com.squareup.okhttp.OkHttpClient;
@@ -21,9 +24,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckListActivity extends AppCompatActivity {
+public class CheckListActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    private Spinner spinner;
+    private ListView myListView;
+    private SearchView mySearchView;
+    private android.widget.Filter filter;
+    //private Spinner spinner;
     private String urlJSON;
 
 
@@ -34,27 +40,32 @@ public class CheckListActivity extends AppCompatActivity {
         ConstantUrl constantUrl = new ConstantUrl();
         urlJSON = constantUrl.getUrlJSONLicense();
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+       // spinner = (Spinner) findViewById(R.id.spinner);
+        mySearchView = (SearchView) findViewById(R.id.searchView2);
+        myListView = (ListView) findViewById(R.id.listView2);
 
-
-        SyncVehicle syncVehicle = new SyncVehicle(this, urlJSON, spinner);
+        SyncVehicle syncVehicle = new SyncVehicle(this, urlJSON, myListView);
         syncVehicle.execute();
 
 
         //addItemOnSpinner();
     }//main method
 
+
+
     private class SyncVehicle extends AsyncTask<Void, Void, String> {
         //Explicit
         private Context context;
         private String myURL;
-        private Spinner mySpinner;
+        private ListView listView;
+        //  private Spinner mySpinner;
         private String[] licenseStrings, idStrings;
 
-        public SyncVehicle(Context context, String myURL, Spinner mySpinner) {
+        public SyncVehicle(Context context, String myURL, ListView listView) {
             this.context = context;
             this.myURL = myURL;
-            this.mySpinner = mySpinner;
+            this.listView =  listView;
+         //   this.mySpinner = mySpinner;
         }
 
         @Override
@@ -94,7 +105,12 @@ public class CheckListActivity extends AppCompatActivity {
 
 
                 ArrayAdapter arrayAdapter = new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, licenseStrings);
-                mySpinner.setAdapter(arrayAdapter);
+                filter = arrayAdapter.getFilter();
+                listView.setAdapter(arrayAdapter);
+
+                setUpSearchView();
+
+              //  mySpinner.setAdapter(arrayAdapter);
 
             } catch (JSONException e) {
                 Log.d("SPN2", "e doInBack ==> " + e);
@@ -103,7 +119,7 @@ public class CheckListActivity extends AppCompatActivity {
     }
 
 
-    public void addItemOnSpinner() {
+  /*  public void addItemOnSpinner() {
         spinner = (Spinner) findViewById(R.id.spinner);
         List<String> list = new ArrayList<String>();
         list.add("1");
@@ -115,11 +131,33 @@ public class CheckListActivity extends AppCompatActivity {
         spinner.setAdapter(dataAdapter);
 
 
-        //Spinner spinner = (Spinner) findViewById(R.id.spinner);
-      /*   ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, list);
-        spinner.setAdapter(arrayAdapter);
-        */
 
 
+    }*/
+
+
+    private void setUpSearchView(){
+        mySearchView.setIconifiedByDefault(false);
+        mySearchView.setOnQueryTextListener(this);
+        mySearchView.setSubmitButtonEnabled(true);
+        mySearchView.setQueryHint("Search Vehicle");
     }
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        if (TextUtils.isEmpty(newText)) {
+            myListView.clearTextFilter();
+        } else {
+            myListView.setFilterText(newText.toString());
+            filter.filter(newText);
+        }
+        return true;
+    }
+
+
+
 }//Main class

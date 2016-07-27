@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CheckListActivity" />
-        <activity android:name=".CheckList2Activity"></activity>
+        <activity android:name=".CheckList2Activity" />
+        <activity android:name=".itemVehicleActivity"></activity>
     </application>
 
 </manifest>

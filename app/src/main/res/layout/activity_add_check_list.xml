@@ -45,12 +45,10 @@
                 android:id="@+id/editText5"
                 android:hint="Deep Tread" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText6"
-                android:hint="Check Date"
-                android:inputType="date" />
+            <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/datePicker" />
 
             <EditText
                 android:layout_width="match_parent"

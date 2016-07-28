@@ -1,13 +1,17 @@
 package com.hitachi_tstv.yodpanom.yaowaluk.tiresmanagement;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -50,7 +54,6 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
 
         //addItemOnSpinner();
     }//main method
-
 
 
     private class SyncVehicle extends AsyncTask<Void, Void, String> {
@@ -110,7 +113,18 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
 
                 setUpSearchView();
 
-              //  mySpinner.setAdapter(arrayAdapter);
+              // Onclick on by item
+
+                myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(CheckListActivity.this, itemVehicleActivity.class);
+                        intent.putExtra("license", licenseStrings[position]);
+                        intent.putExtra("id", idStrings[position]);
+                        startActivity(intent);
+                    }
+                });
+
 
             } catch (JSONException e) {
                 Log.d("SPN2", "e doInBack ==> " + e);

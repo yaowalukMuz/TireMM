@@ -13,8 +13,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:gravity="center">
+        android:gravity="center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,32 +30,85 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:id="@+id/iv11"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:id="@+id/iv21"
-                android:layout_weight="1"
-                android:layout_marginRight="25dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv11" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:id="@+id/iv31"
-                android:layout_weight="1"
-                android:layout_marginLeft="25dp" />
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv11"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:id="@+id/iv41"
-                android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv21" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv21"
+                    android:layout_weight="1"
+                    android:layout_marginRight="25dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv31" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv31"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="25dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv41" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv41"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -63,80 +117,275 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv52"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv62"
-                android:layout_marginRight="25dp"
-                android:layout_weight="1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv52" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv72"
-                android:layout_marginLeft="25dp"
-                android:layout_weight="1" />
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv52"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv82"
-                android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv62" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv62"
+                    android:layout_marginRight="25dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv72" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv72"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv82" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv82"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1">
+            android:layout_marginTop="20dp">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv93"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv103"
-                android:layout_marginRight="25dp"
-                android:layout_weight="1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv93" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv113"
-                android:layout_marginLeft="25dp"
-                android:layout_weight="1" />
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv93"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="120dp"
-                android:id="@+id/iv123"
-                android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv103" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv103"
+                    android:layout_marginRight="25dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv113" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv113"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv123" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv123"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:id="@+id/ivsp"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv134" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv134"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv144" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv144"
+                    android:layout_weight="1"
+                    android:layout_marginRight="25dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv154" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv154"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="25dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tv164" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/iv164"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/tvsp" />
+
+                <ImageView
+                    android:layout_width="@dimen/img_weight"
+                    android:layout_height="@dimen/img_height"
+                    android:id="@+id/ivsp" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

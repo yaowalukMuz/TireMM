@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.okhttp.FormEncodingBuilder;
@@ -20,12 +21,14 @@ import org.json.JSONObject;
 
 public class itemVehicleActivity extends AppCompatActivity {
 
-    private String[] lineString,  positionString,  positionNoString, tireNoString ,tireIdString;
 
-    private TextView licenseTextView;
-    private ImageView tl11ImageView,tl21ImageView,tr31ImageView,tr41ImageView,bl52ImageView,
-            bl62ImageView,br72ImageView,br82ImageView,bl93ImageView,bl103ImageView,
-            br113ImageView,br123ImageView,spImageView;
+    private String[] lineString,  positionString,  positionNoString, tireNoString ,tireIdString;
+    private TextView licenseTextView,tv11TextView,tv21TextView,tv31TextView,tv41TextView ,tv52TextView ,tv62TextView,
+            tv72TextView,tv82TextView,tv93TextView ,tv103TextView,tv113TextView,tv123TextView,tvspTextView;
+    private ImageView imageView11,imageView21,imageView31,imageView41,imageView52,
+            imageView62,imageView72,imageView82,imageView93,imageView103,
+            imageView113,imageView123,spImageView;
+
     private String licenseString,idString;
     private String urlJSONFormat;
 
@@ -37,18 +40,33 @@ public class itemVehicleActivity extends AppCompatActivity {
 
         //Bind widget
         licenseTextView = (TextView) findViewById(R.id.textView3);
-        tl11ImageView = (ImageView) findViewById(R.id.iv11);
-        tl21ImageView = (ImageView) findViewById(R.id.iv21);
-        tr31ImageView = (ImageView) findViewById(R.id.iv31);
-        tr41ImageView = (ImageView) findViewById(R.id.iv41);
-        bl52ImageView = (ImageView) findViewById(R.id.iv52);
-        bl62ImageView = (ImageView) findViewById(R.id.iv62);
-        br72ImageView = (ImageView) findViewById(R.id.iv72);
-        br82ImageView = (ImageView) findViewById(R.id.iv82);
-        bl93ImageView = (ImageView) findViewById(R.id.iv93);
-        bl103ImageView = (ImageView) findViewById(R.id.iv103);
-        br113ImageView = (ImageView) findViewById(R.id.iv113);
-        br123ImageView = (ImageView) findViewById(R.id.iv123);
+
+        tv11TextView = (TextView) findViewById(R.id.tv11);
+        tv21TextView = (TextView) findViewById(R.id.tv21);
+        tv31TextView = (TextView) findViewById(R.id.tv31);
+        tv41TextView = (TextView) findViewById(R.id.tv41);
+        tv52TextView = (TextView) findViewById(R.id.tv52);
+        tv62TextView = (TextView) findViewById(R.id.tv62);
+        tv72TextView = (TextView) findViewById(R.id.tv72);
+        tv82TextView = (TextView) findViewById(R.id.tv82);
+        tv93TextView = (TextView) findViewById(R.id.tv93);
+        tv103TextView = (TextView) findViewById(R.id.tv103);
+        tv113TextView = (TextView) findViewById(R.id.tv113);
+        tv123TextView = (TextView) findViewById(R.id.tv123);
+        tvspTextView = (TextView) findViewById(R.id.tvsp);
+
+        imageView11 = (ImageView) findViewById(R.id.iv11);
+        imageView21 = (ImageView) findViewById(R.id.iv21);
+        imageView31 = (ImageView) findViewById(R.id.iv31);
+        imageView41 = (ImageView) findViewById(R.id.iv41);
+        imageView52 = (ImageView) findViewById(R.id.iv52);
+        imageView62 = (ImageView) findViewById(R.id.iv62);
+        imageView72 = (ImageView) findViewById(R.id.iv72);
+        imageView82 = (ImageView) findViewById(R.id.iv82);
+        imageView93 = (ImageView) findViewById(R.id.iv93);
+        imageView103 = (ImageView) findViewById(R.id.iv103);
+        imageView113 = (ImageView) findViewById(R.id.iv113);
+        imageView123 = (ImageView) findViewById(R.id.iv123);
         spImageView = (ImageView) findViewById(R.id.ivsp);
 
         //show view
@@ -65,21 +83,26 @@ public class itemVehicleActivity extends AppCompatActivity {
         SyncFormatWheel syncFormatWheel = new SyncFormatWheel(this, urlJSONFormat, idString);
         syncFormatWheel.execute();
 
-        for (int i = 0;i < positionNoString.length;i++) {
-            String temp = "iv" + positionNoString[i] + lineString[i];
-            constantUrl.setImageSource(tireIdString[i]);
-            String src = constantUrl.getImageSource();
 
-            if (temp.equals(tl11ImageView.getId())) {
+         //for (int i = 0;i < positionNoString.length;i++) {
+
+          /*   String temp = "iv" + positionNoString[i] + lineString[i];
+           // constantUrl.setImageSource(tireIdString[i]);
+         //   String src = constantUrl.getImageSource();
+            /*
+            if (temp.equals(ImageView.getId())) {
                 if (tireIdString[i].equals("")) {
                     tl11ImageView.setImageResource(R.drawable.tire_null);
                 } else {
                     tl11ImageView.setImageResource(R.drawable.tire);
                 }
 
-            }
+            }*/
 
-        }
+
+
+       // }
+
 
 
     }
@@ -101,7 +124,7 @@ public class itemVehicleActivity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             try {
                 OkHttpClient okHttpClient = new OkHttpClient();
-                RequestBody requestBody = new FormEncodingBuilder().add("veh_id", vehIdString).build();
+                RequestBody requestBody = new FormEncodingBuilder().add("isSearch","true").add("veh_id", vehIdString).build();
                 Request.Builder builder = new Request.Builder();
                 Request request = builder.url(formatURL).post(requestBody).build();
                 Response response = okHttpClient.newCall(request).execute();
@@ -122,6 +145,13 @@ public class itemVehicleActivity extends AppCompatActivity {
             try {
                 JSONArray jsonArray = new JSONArray(s);
 
+                tireIdString = new String[jsonArray.length()];
+                tireNoString = new String[jsonArray.length()];
+                lineString = new String[jsonArray.length()];
+                positionNoString = new String[jsonArray.length()];
+                positionString = new String[jsonArray.length()];
+
+                Log.d("JSON", "JSON ==> " + jsonArray);
                 for(int i=0 ;i<jsonArray.length();i++){
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     tireNoString[i] = jsonObject.getString("tire_serial");
@@ -131,10 +161,219 @@ public class itemVehicleActivity extends AppCompatActivity {
                     positionNoString[i] = jsonObject.getString("fmwDtl_positionNo");
                 }
 
+                for (int i = 0;i < positionNoString.length;i++) {
+
+                    Log.d("Position", "Tire ID in Loop --> " + tireIdString[i]);
+            String temp = positionNoString[i] + lineString[i];
+
+                    switch (temp){
+                        case ("11") :
+
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+
+                                imageView21.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView21.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("21") :
+
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView31.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView31.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("31") :
+
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView31.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView31.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("32") :
+
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView52.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView52.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("41") :
+
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView41.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView41.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("42") :
+
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView62.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView62.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("52") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView72.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView72.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("62") :
+                            if (tireIdString[i].equals("null")|| tireIdString[i].equals("")) {
+                                imageView82.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView82.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("72") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView72.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView72.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("73") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView93.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView93.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("82") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView82.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView82.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+//                            break;
+                        case ("83") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView103.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView103.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+//                            break;
+                        case ("93") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView113.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView113.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("103") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView123.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView123.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("113") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView113.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView113.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("123") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                imageView123.setImageResource(R.drawable.tire_null);
+                            } else {
+                                imageView123.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        case ("SP0") :
+                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
+                                spImageView.setImageResource(R.drawable.tire_null);
+                            } else {
+                                spImageView.setImageResource(R.drawable.tire);
+                            }
+                            continue;
+                        default:
+                            if(temp == "11"){
+                                imageView11.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "21"){
+                                imageView21.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "31"){
+                                imageView31.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "41"){
+                                imageView41.setImageResource(R.drawable.tire_null);
+                            }if(temp == "52"){
+                            imageView52.setImageResource(R.drawable.tire_null);
+                            }if(temp == "62"){
+                                imageView62.setImageResource(R.drawable.tire_null);
+                            }if(temp == "72"){
+                                imageView72.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "82"){
+                                imageView82.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "93"){
+                                imageView11.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "103"){
+                                imageView103.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "113"){
+                                imageView113.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "123"){
+                                imageView123.setImageResource(R.drawable.tire_null);
+                            }
+                            if(temp == "SP0"){
+                                spImageView.setImageResource(R.drawable.tire_null);
+                            }
+
+
+                           // spImageView.setImageResource(R.drawable.tire_null);
+
+//                            break;
+                    }
+
+/*
+            if (temp.equals(ImageView.getId())) {
+                if (tireIdString[i].equals("")) {
+                    imageView11.setImageResource(R.drawable.tire_null);
+                } else {
+                    tl11ImageView.setImageResource(R.drawable.tire);
+                }
+
+            }*/
+
+
+
+                 }
+
+//                imageView11.setImageResource(R.drawable.tire);
+//                imageView21.setImageResource(R.drawable.tire_null);
+//                imageView31.setImageResource(R.drawable.tire_null);
+//                imageView41.setImageResource(R.drawable.tire_null);
+//                imageView52.setImageResource(R.drawable.tire_null);
+//                imageView62.setImageResource(R.drawable.tire_null);
+//                imageView72.setImageResource(R.drawable.tire_null);
+//                imageView82.setImageResource(R.drawable.tire_null);
+//                imageView93.setImageResource(R.drawable.tire_null);
+//                imageView103.setImageResource(R.drawable.tire_null);
+//                imageView113.setImageResource(R.drawable.tire_null);
+//                imageView123.setImageResource(R.drawable.tire);
+//                spImageView.setImageResource(R.drawable.tire);
+//                Log.d("Extra", "positionNoString Length -> " + positionNoString.length);
+//
+//
+//
 
 
             } catch (Exception e) {
-
+                Log.d("ItemVeh", "e doInBack ==> " + e);
             }
 
 

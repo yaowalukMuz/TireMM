@@ -38,7 +38,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv11" />
 
                 <ImageView
@@ -58,7 +57,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv21" />
 
                 <ImageView
@@ -78,7 +76,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv31" />
 
                 <ImageView
@@ -98,7 +95,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv41" />
 
                 <ImageView
@@ -115,7 +111,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -125,7 +121,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv52" />
 
                 <ImageView
@@ -145,7 +140,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv62" />
 
                 <ImageView
@@ -165,7 +159,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv72" />
 
                 <ImageView
@@ -185,7 +178,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv82" />
 
                 <ImageView
@@ -201,7 +193,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -211,7 +203,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv93" />
 
                 <ImageView
@@ -231,7 +222,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv103" />
 
                 <ImageView
@@ -251,7 +241,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv113" />
 
                 <ImageView
@@ -271,7 +260,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv123" />
 
                 <ImageView
@@ -286,7 +274,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -296,7 +285,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv134" />
 
                 <ImageView
@@ -315,7 +303,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv144" />
 
                 <ImageView
@@ -334,7 +321,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv154" />
 
                 <ImageView
@@ -353,7 +339,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tv164" />
 
                 <ImageView
@@ -372,12 +357,13 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:id="@+id/tvsp" />
 
                 <ImageView

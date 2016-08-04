@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -104,6 +105,13 @@ public class itemVehicleActivity extends AppCompatActivity {
 
         SyncFormatWheel syncFormatWheel = new SyncFormatWheel(this, urlJSONFormat, idString);
         syncFormatWheel.execute();
+
+        imageView21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+            }
+        });
 
 
     }
@@ -221,7 +229,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                 if (e.getValue().equals("null")) {
                     imageView21.setImageResource(R.drawable.tire_null);
                 } else {
-                    imageView21.setImageResource(R.drawable.pandgroup2);
+                    imageView21.setImageResource(R.drawable.tire);
                     tv21TextView.setText(seriesMap.get(e.getValue()));
                 }
 

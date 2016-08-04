@@ -12,9 +12,9 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Spinner;
 
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -25,15 +25,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CheckListActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private ListView myListView;
     private SearchView mySearchView;
     private android.widget.Filter filter;
-    //private Spinner spinner;
     private String urlJSON;
 
 
@@ -44,15 +43,13 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
         ConstantUrl constantUrl = new ConstantUrl();
         urlJSON = constantUrl.getUrlJSONLicense();
 
-       // spinner = (Spinner) findViewById(R.id.spinner);
+
         mySearchView = (SearchView) findViewById(R.id.searchView2);
         myListView = (ListView) findViewById(R.id.listView2);
 
         SyncVehicle syncVehicle = new SyncVehicle(this, urlJSON, myListView);
         syncVehicle.execute();
 
-
-        //addItemOnSpinner();
     }//main method
 
 
@@ -61,14 +58,12 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
         private Context context;
         private String myURL;
         private ListView listView;
-        //  private Spinner mySpinner;
         private String[] licenseStrings, idStrings;
 
         public SyncVehicle(Context context, String myURL, ListView listView) {
             this.context = context;
             this.myURL = myURL;
             this.listView =  listView;
-         //   this.mySpinner = mySpinner;
         }
 
         @Override
@@ -98,17 +93,20 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
 
                 licenseStrings = new String[jsonArray.length()];
                 idStrings = new String[jsonArray.length()];
+                final Map<String, String> licenceMap = new HashMap<String,String>();
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     licenseStrings[i] = jsonObject.getString("veh_license");
                     idStrings[i] = jsonObject.getString("veh_id");
+                    licenceMap.put(licenseStrings[i], idStrings[i]);
 
                 }
 
 
-                ArrayAdapter arrayAdapter = new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, licenseStrings);
-                filter = arrayAdapter.getFilter();
+                final ArrayAdapter arrayAdapter = new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, licenseStrings);
+                listView.setTextFilterEnabled(true);
+             //   filter = arrayAdapter.getFilter();
                 listView.setAdapter(arrayAdapter);
 
                 setUpSearchView();
@@ -118,12 +116,18 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
                 myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        String[] arrayStrings = getStringArray(arrayAdapter);
                         Intent intent = new Intent(CheckListActivity.this, itemVehicleActivity.class);
-                        intent.putExtra("license", licenseStrings[position]);
-                        intent.putExtra("id", idStrings[position]);
+//                        intent.putExtra("license", licenseStrings[position]);
+                        intent.putExtra("license", arrayStrings[position]);
+                        intent.putExtra("id", licenceMap.get(arrayStrings[position]));
+                        Log.d("ID","Map ==> " + licenceMap.get(arrayStrings[position]));
                         startActivity(intent);
                     }
+
+
                 });
+
 
 
             } catch (JSONException e) {
@@ -132,6 +136,14 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
         }
     }
 
+    public static String[] getStringArray(ArrayAdapter adapter){
+        String[] a = new String[adapter.getCount()];
+
+        for(int i=0; i<a.length; i++)
+            a[i] = adapter.getItem(i).toString();
+
+        return a;
+    }
 
   /*  public void addItemOnSpinner() {
         spinner = (Spinner) findViewById(R.id.spinner);
@@ -154,8 +166,10 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
         mySearchView.setIconifiedByDefault(false);
         mySearchView.setOnQueryTextListener(this);
         mySearchView.setSubmitButtonEnabled(true);
+
         mySearchView.setQueryHint("Search Vehicle");
     }
+
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
@@ -167,7 +181,8 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
             myListView.clearTextFilter();
         } else {
             myListView.setFilterText(newText.toString());
-            filter.filter(newText);
+
+            //filter.filter(newText);
         }
         return true;
     }

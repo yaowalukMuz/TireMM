@@ -7,6 +7,7 @@
     <dimen name="icon_weight">120dp</dimen>
     <dimen name="h1">35sp</dimen>
     <dimen name="h2">20sp</dimen>
+    <dimen name="p1">10sp</dimen>
     <dimen name="img_height">75sp</dimen>
     <dimen name="img_weight">70sp</dimen>
 </resources>

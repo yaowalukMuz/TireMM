@@ -105,16 +105,10 @@ public class itemVehicleActivity extends AppCompatActivity {
 
         SyncFormatWheel syncFormatWheel = new SyncFormatWheel(this, urlJSONFormat, idString);
         syncFormatWheel.execute();
-
-        imageView21.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
-            }
-        });
+        Log.d("End","End execute");
 
 
-    }
+    } //Main Method
 
 
     private class SyncFormatWheel extends AsyncTask<Void, Void, String> {
@@ -189,30 +183,18 @@ public class itemVehicleActivity extends AppCompatActivity {
                 arrMap.put("164", "");
                 arrMap.put("sp0", "");
 
-                Map<String, String> seriesMap = new HashMap<String, String>();
+                final Map<String, String> seriesMap = new HashMap<String, String>();
 
-                //int arrLine[] = new int[7];
-                List<Integer> lineList = new ArrayList<Integer>();
-                String tmpLine = "";
 
                 List<HashMap> listTemp = new ArrayList<HashMap>();
                 HashMap<String, String> dataMap = new HashMap<String, String>();
                 int j = 0;
                 for (int i = 0; i < positionNoString.length; i++) {
-                    if (!tmpLine.equals(lineString[i])) {
-                        lineList.add(Integer.parseInt(lineString[i]));
-                        tmpLine = lineString[i];
 
-                        j++;
-
-
-                    }
                     if (!(tireIdString[i].equals("null"))) {
                         seriesMap.put(tireIdString[i], tireNoString[i]);
 
                     }
-
-
                     dataMap.put( positionNoString[i]+lineString[i], tireIdString[i]);
                     // listTemp.add(dataMap);
                 }
@@ -224,127 +206,173 @@ public class itemVehicleActivity extends AppCompatActivity {
                     Map.Entry e = (Map.Entry) it.next();
                     Log.d("Value", "arrKey ==> " + e.getKey());
                     Log.d("Value", "arrValue ==> " + e.getValue());
+
             if (e.getKey().equals("11")) {
                 // arrMap.put("21", e.getValue().toString());
                 if (e.getValue().equals("null")) {
                     imageView21.setImageResource(R.drawable.tire_null);
+                    imageView21.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView21.setImageResource(R.drawable.tire);
                     tv21TextView.setText(seriesMap.get(e.getValue()));
+                    imageView21.setTag(R.id.Tire_ID,e.getValue());
+                    imageView21.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
 
             }
             if (e.getKey().equals("21")) {
                 if (e.getValue().equals("null")) {
                     imageView31.setImageResource(R.drawable.tire_null);
+                    imageView31.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView31.setImageResource(R.drawable.tire);
                     tv31TextView.setText(seriesMap.get(e.getValue()));
+                    imageView31.setTag(R.id.Tire_ID,e.getValue());
+                    imageView31.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
 
                 }
             }
             if (e.getKey().equals("32")) {
                 if (e.getValue().equals("null")) {
                     imageView52.setImageResource(R.drawable.tire_null);
+                    imageView52.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView52.setImageResource(R.drawable.tire);
                     tv52TextView.setText(seriesMap.get(e.getValue()));
+                    imageView52.setTag(R.id.Tire_ID,e.getValue());
+                    imageView52.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("42")) {
                 if (e.getValue().equals("null")) {
                     imageView62.setImageResource(R.drawable.tire_null);
+                    imageView62.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView62.setImageResource(R.drawable.tire);
                     tv62TextView.setText(seriesMap.get(e.getValue()));
+                    imageView62.setTag(R.id.Tire_ID,e.getValue());
+                    imageView62.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("52")) {
                 if (e.getValue().equals("null")) {
                     imageView72.setImageResource(R.drawable.tire_null);
+                    imageView72.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView72.setImageResource(R.drawable.tire);
                     tv72TextView.setText(seriesMap.get(e.getValue()));
+                    imageView72.setTag(R.id.Tire_ID,e.getValue());
+                    imageView72.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("62")) {
                 if (e.getValue().equals("null")) {
                     imageView82.setImageResource(R.drawable.tire_null);
+                    imageView82.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView82.setImageResource(R.drawable.tire);
                     tv82TextView.setText(seriesMap.get(e.getValue()));
+                    imageView82.setTag(R.id.Tire_ID,e.getValue());
+                    imageView82.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("73")) {
                 if (e.getValue().equals("null")) {
                     imageView93.setImageResource(R.drawable.tire_null);
+                    imageView93.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView93.setImageResource(R.drawable.tire);
                     tv93TextView.setText(seriesMap.get(e.getValue()));
+                    imageView93.setTag(R.id.Tire_ID,e.getValue());
+                    imageView93.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("83")) {
                 if (e.getValue().equals("null")) {
                     imageView103.setImageResource(R.drawable.tire_null);
+                    imageView103.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView103.setImageResource(R.drawable.tire);
                     tv103TextView.setText(seriesMap.get(e.getValue()));
+                    imageView103.setTag(R.id.Tire_ID,e.getValue());
+                    imageView103.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("93")) {
                 if (e.getValue().equals("null")) {
                     imageView113.setImageResource(R.drawable.tire_null);
+                    imageView113.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView113.setImageResource(R.drawable.tire);
                     tv113TextView.setText(seriesMap.get(e.getValue()));
+                    imageView113.setTag(R.id.Tire_ID,e.getValue());
+                    imageView113.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("103")) {
                 if (e.getValue().equals("null")) {
                     imageView123.setImageResource(R.drawable.tire_null);
+                    imageView123.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView123.setImageResource(R.drawable.tire);
                     tv123TextView.setText(seriesMap.get(e.getValue()));
+                    imageView123.setTag(R.id.Tire_ID,e.getValue());
+                    imageView123.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("114")) {
                 if (e.getValue().equals("null")) {
                     imageView134.setImageResource(R.drawable.tire_null);
+                    imageView134.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView134.setImageResource(R.drawable.tire);
                     tv134TextView.setText(seriesMap.get(e.getValue()));
+                    imageView134.setTag(R.id.Tire_ID,e.getValue());
+                    imageView134.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("124")) {
                 if (e.getValue().equals("null")) {
                     imageView144.setImageResource(R.drawable.tire_null);
+                    imageView144.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView144.setImageResource(R.drawable.tire);
                     tv144TextView.setText(seriesMap.get(e.getValue()));
+                    imageView144.setTag(R.id.Tire_ID,e.getValue());
+                    imageView144.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("134")) {
                 if (e.getValue().equals("null")) {
                     imageView154.setImageResource(R.drawable.tire_null);
+                    imageView154.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView154.setImageResource(R.drawable.tire);
                     tv154TextView.setText(seriesMap.get(e.getValue()));
+                    imageView154.setTag(R.id.Tire_ID,e.getValue());
+                    imageView154.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("144")) {
                 if (e.getValue().equals("null")) {
                     imageView164.setImageResource(R.drawable.tire_null);
+                    imageView164.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView164.setImageResource(R.drawable.tire);
                     tv164TextView.setText(seriesMap.get(e.getValue()));
+                    imageView164.setTag(R.id.Tire_ID,e.getValue());
+                    imageView164.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("SP0")) {
                 if (e.getValue().equals("null")) {
                     spImageView.setImageResource(R.drawable.tire_null);
+                    spImageView.setTag(R.id.Tire_ID, "");
                 } else {
                     spImageView.setImageResource(R.drawable.tire);
                     tvspTextView.setText(seriesMap.get(e.getValue()));
+                    spImageView.setTag(R.id.Tire_ID,e.getValue());
+                    spImageView.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("111")) {
@@ -352,454 +380,472 @@ public class itemVehicleActivity extends AppCompatActivity {
                 ;
                 if (e.getValue().equals("null")) {
                     imageView11.setImageResource(R.drawable.tire_null);
+                    imageView11.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView11.setImageResource(R.drawable.tire);
                     tv11TextView.setText(seriesMap.get(e.getValue()));
+                    imageView11.setTag(R.id.Tire_ID,e.getValue());
+                    imageView11.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("121")) {
                 if (e.getValue().equals("null")) {
                     imageView21.setImageResource(R.drawable.tire_null);
+                    imageView21.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView21.setImageResource(R.drawable.tire);
                     tv21TextView.setText(seriesMap.get(e.getValue()));
-
+                    imageView21.setTag(R.id.Tire_ID,e.getValue());
+                    imageView21.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("131")) {
                 if (e.getValue().equals("null")) {
-                   imageView31.setImageResource(R.drawable.tire_null);
+                    imageView31.setImageResource(R.drawable.tire_null);
+                    imageView31.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView31.setImageResource(R.drawable.tire);
                     tv31TextView.setText(seriesMap.get(e.getValue()));
-
+                    imageView31.setTag(R.id.Tire_ID,e.getValue());
+                    imageView31.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("141") && (!e.getValue().equals("null"))) {
                 if (e.getValue().equals("null")) {
-                         imageView41.setImageResource(R.drawable.tire_null);
+                    imageView41.setImageResource(R.drawable.tire_null);
+                    imageView41.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView41.setImageResource(R.drawable.tire);
                     tv41TextView.setText(seriesMap.get(e.getValue()));
+                    imageView41.setTag(R.id.Tire_ID,e.getValue());
+                    imageView41.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("152")) {
                 if (e.getValue().equals("null")) {
                     imageView52.setImageResource(R.drawable.tire_null);
+                    imageView52.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView52.setImageResource(R.drawable.tire);
                     tv52TextView.setText(seriesMap.get(e.getValue()));
+                    imageView52.setTag(R.id.Tire_ID,e.getValue());
+                    imageView52.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("162")) {
                 if (e.getValue().equals("null")) {
                     imageView62.setImageResource(R.drawable.tire_null);
+                    imageView62.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView62.setImageResource(R.drawable.tire);
                     tv62TextView.setText(seriesMap.get(e.getValue()));
+                    imageView62.setTag(R.id.Tire_ID,e.getValue());
+                    imageView62.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("172")) {
                 if (e.getValue().equals("null")) {
                     imageView72.setImageResource(R.drawable.tire_null);
+                    imageView72.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView72.setImageResource(R.drawable.tire);
                     tv72TextView.setText(seriesMap.get(e.getValue()));
+                    imageView72.setTag(R.id.Tire_ID,e.getValue());
+                    imageView72.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("182")) {
                 if (e.getValue().equals("null")) {
                     imageView82.setImageResource(R.drawable.tire_null);
+                    imageView82.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView82.setImageResource(R.drawable.tire);
                     tv82TextView.setText(seriesMap.get(e.getValue()));
+                    imageView82.setTag(R.id.Tire_ID,e.getValue());
+                    imageView82.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("193")) {
                 if (e.getValue().equals("null")) {
                     imageView93.setImageResource(R.drawable.tire_null);
+                    imageView93.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView93.setImageResource(R.drawable.tire);
                     tv93TextView.setText(seriesMap.get(e.getValue()));
+                    imageView93.setTag(R.id.Tire_ID,e.getValue());
+                    imageView93.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("203")) {
                 if (e.getValue().equals("null")) {
-                  imageView103.setImageResource(R.drawable.tire_null);
+                    imageView103.setImageResource(R.drawable.tire_null);
+                    imageView103.setTag(R.id.Tire_ID, "");
               } else {
                     imageView103.setImageResource(R.drawable.tire);
-                  tv103TextView.setText(seriesMap.get(e.getValue()));
+                    tv103TextView.setText(seriesMap.get(e.getValue()));
+                    imageView103.setTag(R.id.Tire_ID,e.getValue());
+                    imageView103.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                }
             }
             if (e.getKey().equals("213") ) {
                 if (e.getValue().equals("null")) {
                     imageView113.setImageResource(R.drawable.tire_null);
+                    imageView113.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView113.setImageResource(R.drawable.tire);
                     tv113TextView.setText(seriesMap.get(e.getValue()));
+                    imageView113.setTag(R.id.Tire_ID,e.getValue());
+                    imageView113.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("223") ) {
                 if (e.getValue().equals("null")) {
                     imageView123.setImageResource(R.drawable.tire_null);
+                    imageView123.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView123.setImageResource(R.drawable.tire);
                     tv123TextView.setText(seriesMap.get(e.getValue()));
+                    imageView123.setTag(R.id.Tire_ID,e.getValue());
+                    imageView123.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("234") ) {
                 if (e.getValue().equals("null")) {
                     imageView134.setImageResource(R.drawable.tire_null);
+                    imageView134.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView134.setImageResource(R.drawable.tire);
                     tv134TextView.setText(seriesMap.get(e.getValue()));
+                    imageView134.setTag(R.id.Tire_ID,e.getValue());
+                    imageView134.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("244")) {
                 if (e.getValue().equals("null")) {
                     imageView144.setImageResource(R.drawable.tire_null);
+                    imageView144.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView144.setImageResource(R.drawable.tire);
                     tv144TextView.setText(seriesMap.get(e.getValue()));
+                    imageView144.setTag(R.id.Tire_ID,e.getValue());
+                    imageView144.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("254")) {
                 if (e.getValue().equals("null")) {
                     imageView154.setImageResource(R.drawable.tire_null);
+                    imageView154.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView154.setImageResource(R.drawable.tire);
                     tv154TextView.setText(seriesMap.get(e.getValue()));
+                    imageView154.setTag(R.id.Tire_ID,e.getValue());
+                    imageView154.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
             if (e.getKey().equals("264")) {
                 if (e.getValue().equals("null")) {
                     imageView164.setImageResource(R.drawable.tire_null);
+                    imageView164.setTag(R.id.Tire_ID, "");
                 } else {
                     imageView164.setImageResource(R.drawable.tire);
                     tv164TextView.setText(seriesMap.get(e.getValue()));
+                    imageView164.setTag(R.id.Tire_ID,e.getValue());
+                    imageView164.setTag(R.id.Tire_Serial,seriesMap.get(e.getValue()));
                 }
             }
         }
+                imageView11.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
 
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
 
-//                    if(em.getKey().equals("223")){
-//                        if (!em.getValue().equals("")) {
-//                            imageView123.setImageResource(R.drawable.tire);
-//                            tv123TextView.setText(seriesMap.get(em.getValue()));
-//                        } else {
-//                            imageView123.setImageResource(R.drawable.tire_null);
-//                        }
-//                    }
-//
-//
-//
-//
-//
-//                }
+                imageView21.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
 
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
 
+                imageView31.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
 
-              /*  if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//
-//                                imageView21.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView21.setImageResource(R.drawable.tire);
-//                            }*/
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
 
-          /*      Iterator iter = arrMap.entrySet().iterator();
-
-                while (iter.hasNext()) {
-                    Log.d("Value", "arrMap ==> "+ iter.next());
-                    Log.d("Position", "dataMap ==> "+ dataMap.get(iter.next()));
-
-
-                }*/
-
-               /*Iterator i = listTemp.iterator();
-                while (i.hasNext()) {
-                   HashMap a = (HashMap)i.next();
-
-                    Log.d("getList","--->"+i.next());
-                }*/
-
-                //Log.d("subList","::::"+listTemp.subList(1, 1));
-
-               /* for (int k = 0;k<lineList.size();k++) {
-                    Log.d("aline","-->"+k+ ". "+lineList.get(k));
-                    Log.d("Position", "Position ==> " + dataMap.get(positionNoString[2]));
-                }
-
-                Map<String, List<HashMap>> formMap2 = new HashMap<String,List<HashMap>>();
-                for (int k = 0;k<lineList.size();k++) {
-                    formMap2.put(lineList.get(k).toString(), listTemp);
-                }
-                Log.d("Map2", "Map2 ==> " + formMap2);
-
-             Map<String, List<String>> arrHMap = new HashMap<String,List<String>>();
-
-
-                List<Map<String, String>> arrListM = new ArrayList<Map<String, String>>();
-
-
-                Map<String, Map<String, Map<String, String>>> formatMap = new HashMap<String, Map<String, Map<String,String>>>();
-
-                for (int i = 0;i < positionNoString.length;i++) {
-
-                    //Map<String,String>
-                    String subPosition = positionString[i].substring(1,2);
-
-                    formatMap.put(positionNoString[i], new HashMap<String, Map<String, String>>());
-
-                    formatMap.get(positionNoString[i]).put(subPosition, new HashMap<String, String>());
-                    formatMap.get(positionNoString[i]).get(subPosition).put("tireSeries",tireNoString[i]);
-                    formatMap.get(positionNoString[i]).get(subPosition).put("tireId",tireIdString[i]);
-                    formatMap.get(positionNoString[i]).get(subPosition).put("position",positionString[i]);
-
-                }
-
-*/
-
-
-  /*
-
-
-                Map<String, Map<String, Map<String, Map<String, String>>>> formatMap = new HashMap<String, Map<String, Map<String, Map<String, String>>>>();
-
-
-
-                for (int i = 0;i < positionNoString.length;i++) {
-
-                    String subPosition = positionString[i].substring(1,2);
-                    Log.d("Pos", "SubPosition------>" + subPosition);
-                    formatMap.put(positionNoString[i], new HashMap<String, Map<String, Map<String,String>>>());
-
-                    formatMap.get(positionNoString[i]).put(lineString[i], new HashMap<String, Map<String, String>>());
-
-                    formatMap.get(positionNoString[i]).get(lineString[i]).put(subPosition, new HashMap<String, String>());
-
-                    formatMap.get(positionNoString[i]).get(lineString[i]).get(subPosition).put("tireSeries", tireNoString[i]);
-                    formatMap.get(positionNoString[i]).get(lineString[i]).get(subPosition).put("tireId", tireIdString[i]);
-                    formatMap.get(positionNoString[i]).get(lineString[i]).get(subPosition).put("position", positionString[i]);
 
 
                     }
+                });
 
-                Log.d("ArrFormat", "_____>"  + formatMap);
+                imageView41.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
 
-                Log.d("forMat","Size_____>"+formatMap.size());
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
 
-                Iterator iter = formatMap.entrySet().iterator();
+                imageView52.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
 
-                while (iter.hasNext()) {
-                    Map.Entry mEntry = (Map.Entry) iter.next();
-                    Log.d("entry", "--.--" +mEntry.getKey() +">>>"+ mEntry.getValue());
-                    //Log.d("cnt", "--.--" + formatMap.get("mEntry.getValue()").size());
-                }
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
 
-*/
+                imageView62.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView72.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView82.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView93.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView103.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView113.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView123.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView134.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView144.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView154.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
+
+                imageView164.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("Click","TAG ID ==> " + v.getTag(R.id.Tire_ID));
+                        Log.d("Click", "TAG Serial ==> " + v.getTag(R.id.Tire_Serial));
+
+                        if (v.getTag(R.id.Tire_ID).equals(""))
+                        {
+                            Log.d("Tag", "Tire ID is Null");
+                        }else {
+                            Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
+                            intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
+                            intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            startActivity(intent);
+                        }
+                    }
+                });
 
 
-                //String[] arrFormat = formatMap.values().toArray(new String[0]);
-
-
-                // String subPosition = positionString[i].substring(1, 2);
-
-//                    Log.d("Position", "Tire ID in Loop --> " + tireIdString[i]);
-//            String temp = positionNoString[i] + lineString[i];
-//
-//                    switch (temp){
-//                        case ("11") :
-//
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//
-//                                imageView21.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView21.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("21") :
-//
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView31.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView31.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("31") :
-//
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView31.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView31.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("32") :
-//
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView52.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView52.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("41") :
-//
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView41.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView41.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("42") :
-//
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView62.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView62.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("52") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView72.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView72.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("62") :
-//                            if (tireIdString[i].equals("null")|| tireIdString[i].equals("")) {
-//                                imageView82.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView82.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("72") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView72.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView72.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("73") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView93.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView93.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("82") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView82.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView82.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-////                            break;
-//                        case ("83") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView103.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView103.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-////                            break;
-//                        case ("93") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView113.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView113.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("103") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView123.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView123.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("113") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView113.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView113.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("123") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                imageView123.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                imageView123.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        case ("SP0") :
-//                            if (tireIdString[i].equals("null") || tireIdString[i].equals("")) {
-//                                spImageView.setImageResource(R.drawable.tire_null);
-//                            } else {
-//                                spImageView.setImageResource(R.drawable.tire);
-//                            }
-//                            continue;
-//                        default:
-//                            if(temp == "11"){
-//                                imageView11.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "21"){
-//                                imageView21.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "31"){
-//                                imageView31.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "41"){
-//                                imageView41.setImageResource(R.drawable.tire_null);
-//                            }if(temp == "52"){
-//                            imageView52.setImageResource(R.drawable.tire_null);
-//                            }if(temp == "62"){
-//                                imageView62.setImageResource(R.drawable.tire_null);
-//                            }if(temp == "72"){
-//                                imageView72.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "82"){
-//                                imageView82.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "93"){
-//                                imageView11.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "103"){
-//                                imageView103.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "113"){
-//                                imageView113.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "123"){
-//                                imageView123.setImageResource(R.drawable.tire_null);
-//                            }
-//                            if(temp == "SP0"){
-//                                spImageView.setImageResource(R.drawable.tire_null);
-//                            }
-//
-//
-//                           // spImageView.setImageResource(R.drawable.tire_null);
-//
-////                            break;
-//                    }
-//
-//
-
-
-//                imageView11.setImageResource(R.drawable.tire);
-//                imageView21.setImageResource(R.drawable.tire_null);
-//                imageView31.setImageResource(R.drawable.tire_null);
-//                imageView41.setImageResource(R.drawable.tire_null);
-//                imageView52.setImageResource(R.drawable.tire_null);
-//                imageView62.setImageResource(R.drawable.tire_null);
-//                imageView72.setImageResource(R.drawable.tire_null);
-//                imageView82.setImageResource(R.drawable.tire_null);
-//                imageView93.setImageResource(R.drawable.tire_null);
-//                imageView103.setImageResource(R.drawable.tire_null);
-//                imageView113.setImageResource(R.drawable.tire_null);
-//                imageView123.setImageResource(R.drawable.tire);
-//                spImageView.setImageResource(R.drawable.tire);
-//                Log.d("Extra", "positionNoString Length -> " + positionNoString.length);
-//
-//
-//
 
 
             } catch (Exception e) {
@@ -809,6 +855,17 @@ public class itemVehicleActivity extends AppCompatActivity {
 
         }
     }
+//
+//    public void clickWheelImage(View view) {
+//        Log.d("TAG", "In Click Wheel");
+//        if(!(view.getTag(1).equals(""))){
+//           Intent intent = new Intent(itemVehicleActivity.this,AddCheckListActivity.class);
+//            intent.putExtra("tireId", view.getTag(1).toString());
+//            intent.putExtra("series", view.getTag(2).toString());
+//            startActivity(intent);
+//
+//        }
+//
+//    }
 
-
-}
+}//Main Class

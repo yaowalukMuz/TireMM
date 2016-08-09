@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">TiresManagement</string>
     <string name="checkList_letter">ตรวจเช็คลมยางและความลึกดอกยาง</string>
+    <item type="id" name="Tire_ID"/>
+    <item type="id" name="Tire_Serial"/>
 </resources>

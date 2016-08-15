@@ -34,13 +34,13 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,7 +73,6 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv21"
-                        android:layout_weight="1"
                         android:layout_marginRight="25dp" />
 
                 </LinearLayout>
@@ -95,7 +94,6 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv31"
-                        android:layout_weight="1"
                         android:layout_marginLeft="25dp" />
 
                 </LinearLayout>
@@ -115,8 +113,7 @@
                     <ImageView
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
-                        android:id="@+id/iv41"
-                        android:layout_weight="1" />
+                        android:id="@+id/iv41" />
 
                 </LinearLayout>
 
@@ -126,7 +123,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -144,7 +142,6 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv52"
-                        android:layout_weight="1"
                         android:layout_marginLeft="5dp" />
 
                 </LinearLayout>
@@ -165,8 +162,7 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv62"
-                        android:layout_marginRight="25dp"
-                        android:layout_weight="1" />
+                        android:layout_marginRight="25dp" />
 
                 </LinearLayout>
 
@@ -186,8 +182,7 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv72"
-                        android:layout_marginLeft="25dp"
-                        android:layout_weight="1" />
+                        android:layout_marginLeft="25dp" />
 
                 </LinearLayout>
 
@@ -206,8 +201,7 @@
                     <ImageView
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
-                        android:id="@+id/iv82"
-                        android:layout_weight="1" />
+                        android:id="@+id/iv82"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -216,7 +210,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -234,7 +229,6 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv93"
-                        android:layout_weight="1"
                         android:layout_marginLeft="5dp" />
 
                 </LinearLayout>
@@ -255,8 +249,7 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv103"
-                        android:layout_marginRight="25dp"
-                        android:layout_weight="1" />
+                        android:layout_marginRight="25dp" />
 
                 </LinearLayout>
 
@@ -276,8 +269,7 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv113"
-                        android:layout_marginLeft="25dp"
-                        android:layout_weight="1" />
+                        android:layout_marginLeft="25dp"/>
 
                 </LinearLayout>
 
@@ -296,8 +288,7 @@
                     <ImageView
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
-                        android:id="@+id/iv123"
-                        android:layout_weight="1" />
+                        android:id="@+id/iv123" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -306,7 +297,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -324,7 +316,6 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv134"
-                        android:layout_weight="1"
                         android:layout_marginLeft="5dp" />
                 </LinearLayout>
 
@@ -344,7 +335,6 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv144"
-                        android:layout_weight="1"
                         android:layout_marginRight="25dp" />
                 </LinearLayout>
 
@@ -364,7 +354,6 @@
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
                         android:id="@+id/iv154"
-                        android:layout_weight="1"
                         android:layout_marginLeft="25dp" />
                 </LinearLayout>
 
@@ -383,8 +372,7 @@
                     <ImageView
                         android:layout_width="@dimen/img_weight"
                         android:layout_height="@dimen/img_height"
-                        android:id="@+id/iv164"
-                        android:layout_weight="1" />
+                        android:id="@+id/iv164"/>
                 </LinearLayout>
             </LinearLayout>
 

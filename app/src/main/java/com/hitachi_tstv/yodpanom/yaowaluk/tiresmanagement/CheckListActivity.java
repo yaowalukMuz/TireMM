@@ -32,8 +32,7 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
 
     private ListView myListView;
     private SearchView mySearchView;
-    private android.widget.Filter filter;
-    private String urlJSON;
+    private String urlJSON,username;
 
 
     @Override
@@ -46,6 +45,9 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
 
         mySearchView = (SearchView) findViewById(R.id.searchView2);
         myListView = (ListView) findViewById(R.id.listView2);
+
+        username = new String();
+        username = getIntent().getStringExtra("username");
 
         SyncVehicle syncVehicle = new SyncVehicle(this, urlJSON, myListView);
         syncVehicle.execute();
@@ -121,6 +123,7 @@ public class CheckListActivity extends AppCompatActivity implements SearchView.O
 //                        intent.putExtra("license", licenseStrings[position]);
                         intent.putExtra("license", arrayStrings[position]);
                         intent.putExtra("id", licenceMap.get(arrayStrings[position]));
+                        intent.putExtra("username", username);
                         Log.d("ID","Map ==> " + licenceMap.get(arrayStrings[position]));
                         startActivity(intent);
                     }

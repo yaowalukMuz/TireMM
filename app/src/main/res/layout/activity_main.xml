@@ -11,32 +11,12 @@
     android:background="@drawable/wallpapers_a_00">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:id="@+id/button"
-            android:layout_weight="1"
-            android:textColor="@color/text"
-            android:onClick="clickSignIn" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_centerHorizontal="true"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_centerInParent="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,14 +40,28 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:hint="Username"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:background="#78ffffff"
+            android:layout_margin="5dp" />
 
         <EditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/editText2"
             android:hint="Password"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:background="#78ffffff"
+            android:layout_margin="5dp"
+            android:inputType="textWebPassword" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:id="@+id/button"
+            android:layout_weight="1"
+            android:textColor="@color/text"
+            android:onClick="clickSignIn" />
 
     </LinearLayout>
 </RelativeLayout>

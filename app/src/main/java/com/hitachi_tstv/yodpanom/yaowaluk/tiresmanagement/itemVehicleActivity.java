@@ -34,7 +34,7 @@ import java.util.Set;
 
 public class itemVehicleActivity extends AppCompatActivity {
 
-
+    private String username;
     private String[] lineString, positionString, positionNoString, tireNoString, tireIdString;
     private TextView licenseTextView, tv11TextView, tv21TextView, tv31TextView, tv41TextView, tv52TextView, tv62TextView,
             tv72TextView, tv82TextView, tv93TextView, tv103TextView, tv113TextView, tv123TextView,tv134TextView,
@@ -95,6 +95,7 @@ public class itemVehicleActivity extends AppCompatActivity {
         //show view
         licenseString = getIntent().getStringExtra("license");
         idString = getIntent().getStringExtra("id");
+        username = getIntent().getStringExtra("username");
 
         ConstantUrl constantUrl = new ConstantUrl();
         urlJSONFormat = constantUrl.getUrlJSONFormatWhell();
@@ -567,6 +568,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -585,6 +587,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -603,6 +606,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
 
@@ -624,6 +628,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -642,6 +647,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -660,6 +666,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -678,6 +685,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -696,6 +704,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -714,6 +723,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -732,6 +742,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -750,6 +761,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -768,6 +780,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -786,6 +799,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -804,6 +818,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -822,6 +837,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }
@@ -840,6 +856,7 @@ public class itemVehicleActivity extends AppCompatActivity {
                             Intent intent = new Intent(itemVehicleActivity.this, AddCheckListActivity.class);
                             intent.putExtra("ID", (String) v.getTag(R.id.Tire_ID));
                             intent.putExtra("Serial", (String) v.getTag(R.id.Tire_Serial));
+                            intent.putExtra("username", username);
                             startActivity(intent);
                         }
                     }

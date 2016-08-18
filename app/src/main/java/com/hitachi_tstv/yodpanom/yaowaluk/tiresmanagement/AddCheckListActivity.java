@@ -1,5 +1,7 @@
 package com.hitachi_tstv.yodpanom.yaowaluk.tiresmanagement;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +28,7 @@ public class AddCheckListActivity extends AppCompatActivity {
     private EditText odoEditText,deepEditText,presureEditText,commentEditText ;
     private String tireIdString,serialString,odoString,deepString,presureString,commentString,dateString,url,username;
     private DatePicker checkDatePicker;
+
 
     static final int  DATE_DIALOG_ID = 999;
 
@@ -68,6 +71,8 @@ public class AddCheckListActivity extends AppCompatActivity {
         checkDatePicker.init(year, month, day, null);
     }
 
+
+
     public void clickAddCheckList(View view) {
         odoString = odoEditText.getText().toString().trim();
         deepString = deepEditText.getText().toString().trim();
@@ -76,6 +81,8 @@ public class AddCheckListActivity extends AppCompatActivity {
         int month = checkDatePicker.getMonth() + 1;
         dateString = checkDatePicker.getYear() + "-" + month + "-" + checkDatePicker.getDayOfMonth();
         Log.d("Date", dateString);
+
+
 
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody requestBody = new FormEncodingBuilder()
@@ -100,7 +107,13 @@ public class AddCheckListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Response response) throws IOException {
                 Log.d("Call", "Success");
-                //Toast.makeText(AddCheckListActivity.this, "Add Checklist Successful!!", Toast.LENGTH_SHORT).show();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(AddCheckListActivity.this, "Add Checklist Successful!!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 finish();
             }
         });

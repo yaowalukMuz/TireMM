@@ -29,14 +29,16 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.Calendar;
 
+import static com.hitachi_tstv.yodpanom.yaowaluk.tiresmanagement.R.id.spinner2;
+
 public class AddCheckListActivity extends AppCompatActivity {
 
     private TextView tireIdTextView;
-    private EditText odoEditText,deepEditText,presureEditText,commentEditText ;
+    private EditText odoEditText,deepEditText,presureEditText ;
     private String tireIdString,serialString,odoString,deepString,presureString,commentString,
-            dateString,url,username,urlReason,reasonIdString,reasonNameString;
+            dateString,url,username,urlReason,reasonIdString,reasonNameString,reasonId2String,reasonName2String;
     private DatePicker checkDatePicker;
-    private Spinner reason1Spinner;
+    private Spinner reason1Spinner, reason2Spinner;
 
     static final int  DATE_DIALOG_ID = 999;
 
@@ -52,9 +54,10 @@ public class AddCheckListActivity extends AppCompatActivity {
         odoEditText = (EditText) findViewById(R.id.editText3);
         deepEditText = (EditText) findViewById(R.id.editText5);
         presureEditText = (EditText) findViewById(R.id.editText4);
-        commentEditText = (EditText) findViewById(R.id.editText7);
+      //  commentEditText = (EditText) findViewById(R.id.editText7);
         checkDatePicker = (DatePicker) findViewById(R.id.datePicker);
         reason1Spinner = (Spinner) findViewById(R.id.spinner);
+        reason2Spinner = (Spinner) findViewById(R.id.spinner2);
 
         setCurrentDateOnView();
 
@@ -70,6 +73,7 @@ public class AddCheckListActivity extends AppCompatActivity {
 
         SyncReason syncReason = new SyncReason(reason1Spinner, this, urlReason);
         syncReason.execute();
+
 
 
     }//main method
@@ -111,17 +115,23 @@ public class AddCheckListActivity extends AppCompatActivity {
             Log.d("Spinner", "e onPostExecute---->" +s);
             try {
                 JSONArray jsonArray = new JSONArray(s);
-                reasonStrings = new String[jsonArray.length()];
-                idStrings = new String[jsonArray.length()];
+                reasonStrings = new String[jsonArray.length()+1];
+                idStrings = new String[jsonArray.length()+1];
 
                 for(int i = 0;i < jsonArray.length();i++){
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    reasonStrings[i] = jsonObject.getString("res_name");
-                    idStrings[i] =  jsonObject.getString("res_id");
+                    if(i==0){
+                        reasonStrings[i] = "--select reason--";
+                        idStrings[i] = "";
+                    }else {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        reasonStrings[i] = jsonObject.getString("res_name");
+                        idStrings[i] = jsonObject.getString("res_id");
+                    }
                 }
 
                 ArrayAdapter arrayAdapter = new ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, reasonStrings);
                 reason1Spinner.setAdapter(arrayAdapter);
+                reason2Spinner.setAdapter(arrayAdapter);
 
             } catch (Exception e) {
                 Log.d("Spinner", "e onPostExecute+++" + e.toString());
@@ -147,12 +157,39 @@ public class AddCheckListActivity extends AppCompatActivity {
         odoString = odoEditText.getText().toString().trim();
         deepString = deepEditText.getText().toString().trim();
         presureString = presureEditText.getText().toString().trim();
-        commentString = commentEditText.getText().toString().trim();
+        //commentString = commentEditText.getText().toString().trim();
         int month = checkDatePicker.getMonth() + 1;
         dateString = checkDatePicker.getYear() + "-" + month + "-" + checkDatePicker.getDayOfMonth();
+
+        reasonNameString = reason1Spinner.getSelectedItem().toString();
+        reasonName2String = reason2Spinner.getSelectedItem().toString();
+
+        if(reasonNameString.equals("--select reason--")){
+
+        }else{
+            if(reasonNameString.equals(reasonName2String)||reasonName2String.equals(reasonNameString)){
+                reasonNameString = reasonNameString.toString();
+                reasonName2String = "";
+            }else{
+                reasonNameString = reasonNameString.toString();
+                reasonName2String = reasonName2String.toString();
+            }
+         }
+        if(reasonName2String.equals("--select reason--")){
+
+        }else {
+            if(reasonNameString.equals(reasonName2String)||reasonName2String.equals(reasonNameString)){
+                reasonNameString = reasonNameString.toString();
+                reasonName2String = "";
+            }else{
+                reasonNameString = reasonNameString.toString();
+                reasonName2String = reasonName2String.toString();
+            }
+        }
+
         //reasonIdString = reason1Spinner.get
         Log.d("Date", dateString);
-
+        Log.d("Spinner", reasonNameString  +" :: Spinner 2 ::" + reasonName2String);
 
 
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -161,10 +198,11 @@ public class AddCheckListActivity extends AppCompatActivity {
                 .add("odo", odoString)
                 .add("deepTread", deepString)
                 .add("presure", presureString)
-                .add("comment", commentString)
                 .add("checkDate",dateString)
                 .add("tire_id",tireIdString)
-                .add("username",username).build();
+                .add("username",username)
+                .add("reason1",reasonNameString)
+                .add("reason2",reasonName2String).build();
         Request.Builder builder = new Request.Builder();
         Request request = builder.url(url).post(requestBody).build();
 
